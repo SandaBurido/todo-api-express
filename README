@@ -1,0 +1,124 @@
+# Todo List API (Express + TypeScript + TypeORM)
+
+This is a simple RESTful API for a to-do list application built using Express.js, TypeScript, and TypeORM with an in-memory SQLite database.
+
+## Features
+
+- Create tasks with a name, start date, and end date.
+- Retrieve a list of all tasks.
+- Data validation with proper error handling.
+- Uses an in-memory SQLite database for quick testing.
+- Includes Jest tests for API validation.
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 16 or later recommended)
+- npm (comes with Node.js) or yarn
+
+## Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your-repository/todo-api-express.git
+   cd todo-api-express
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+   or if using Yarn:
+
+   ```sh
+   yarn install
+   ```
+
+## Running the Application
+
+1. Start the server:
+   ```sh
+   npm run dev
+   ```
+   or
+   ```sh
+   yarn dev
+   ```
+   The server will start on `http://localhost:3000`.
+
+## API Endpoints
+
+### Create a Task
+
+**POST** `/api/tasks`
+
+```json
+{
+  "name": "Sample Task",
+  "startDate": "2023-01-01"
+}
+```
+
+Response:
+
+```json
+{
+  "id": "uuid-generated",
+  "name": "Sample Task",
+  "startDate": "2023-01-01",
+  "endDate": null
+}
+```
+
+### Get All Tasks
+
+**GET** `/api/tasks` Response:
+
+```json
+[
+  {
+    "id": "uuid-generated",
+    "name": "Sample Task",
+    "startDate": "2023-01-01",
+    "endDate": null
+  }
+]
+```
+
+## Running Tests
+
+Run Jest tests to validate API functionality:
+
+```sh
+npm test
+```
+
+## Project Structure
+
+```
+/todo-api-express
+├── src
+│   ├── controllers       # Task controller
+│   ├── database          # Database configuration
+│   ├── entity            # TypeORM entity definition
+│   ├── routes            # Express routes
+│   ├── tests             # Jest API tests
+│   ├── app.ts            # Express application setup
+├── package.json          # Project dependencies
+├── tsconfig.json         # TypeScript configuration
+├── README.md             # Documentation
+```
+
+## Notes
+
+- This project uses an in-memory SQLite database, meaning data will reset when the server restarts.
+- Future improvements can include using a persistent database and adding more features like updating and deleting tasks.
+
+## License
+
+MIT License
+
